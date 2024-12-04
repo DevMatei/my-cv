@@ -20,7 +20,7 @@ export default function Contact() {
           </p>
 
           <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-xl shadow-lg p-8 backdrop-blur-sm">
-            <form className="space-y-6">
+            <form className="space-y-6" netlify>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -66,7 +66,7 @@ export default function Contact() {
               <div className="flex justify-center space-x-6">
                 {[
                   { icon: Github, href: 'https://github.com/devmatei' },
-                  { icon: Mail, href: 'mailto:contact@devmatei.com' },
+                  { icon: Mail, href: 'mailto:matei.thoma@gmail.com' },
                 ].map(({ icon: Icon, href }) => (
                   <motion.a
                     key={href}
