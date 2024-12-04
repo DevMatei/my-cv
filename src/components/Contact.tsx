@@ -20,7 +20,7 @@ export default function Contact() {
           </p>
 
           <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-xl shadow-lg p-8 backdrop-blur-sm">
-            <form className="space-y-6" netlify>
+            <form className="space-y-6" netlify="true" name="contact">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -29,6 +29,7 @@ export default function Contact() {
                   <input
                     type="text"
                     id="name"
+                    name="name"
                     className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500"
                   />
                 </div>
@@ -39,6 +40,7 @@ export default function Contact() {
                   <input
                     type="email"
                     id="email"
+                    name="email"
                     className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500"
                   />
                 </div>
@@ -49,6 +51,7 @@ export default function Contact() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={4}
                   className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500"
                 ></textarea>
