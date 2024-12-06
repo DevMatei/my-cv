@@ -20,7 +20,8 @@ export default function Contact() {
           </p>
 
           <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-xl shadow-lg p-8 backdrop-blur-sm">
-            <form className="space-y-6" netlify="true" name="contact">
+            <form className="space-y-6" method="POST" data-netlify="true" name="contact">
+              <input type="hidden" name="form-name" value="contact" />
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -30,6 +31,7 @@ export default function Contact() {
                     type="text"
                     id="name"
                     name="name"
+                    required
                     className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500"
                   />
                 </div>
@@ -41,6 +43,7 @@ export default function Contact() {
                     type="email"
                     id="email"
                     name="email"
+                    required
                     className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500"
                   />
                 </div>
@@ -53,10 +56,12 @@ export default function Contact() {
                   id="message"
                   name="message"
                   rows={4}
+                  required
                   className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500"
                 ></textarea>
               </div>
               <motion.button
+                type="submit"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all"
@@ -88,5 +93,4 @@ export default function Contact() {
         </motion.div>
       </div>
     </section>
-  );
 }
