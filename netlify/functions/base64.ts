@@ -1,5 +1,6 @@
 import { Handler } from '@netlify/functions';
-import { getKVStore } from '@netlify/functions';
+import { promises as fs } from 'fs';
+import { join } from 'path';
 
 const headers = {
   'Access-Control-Allow-Origin': '*',
@@ -8,7 +9,15 @@ const headers = {
 };
 
 const DAILY_LIMIT = 10;
-const ADMIN_API_KEY = process.env.ADMIN_API_KEY;
+const ADMIN_API_KEY = process.env.ADMIN_API_KEY || 'your-secret-key-123';
+const RATE_LIMIT_FILE = '/tmp/rate_limits.json';
+
+interface RateLimit {
+  [key: string]: {
+    count: number;
+    date: string;
+  };
+}
 
 const isBase64 = (str: string): boolean => {
   const base64Regex = /^[A-Za-z0-9+/]*={0,2}$/;
@@ -16,21 +25,37 @@ const isBase64 = (str: string): boolean => {
 };
 
 async function checkRateLimit(ip: string): Promise<boolean> {
-  const store = getKVStore();
-  const today = new Date().toISOString().split('T')[0];
-  const key = `ratelimit:${ip}:${today}`;
-  
   try {
-    const currentCount = parseInt(await store.get(key) || '0');
-    
-    if (currentCount >= DAILY_LIMIT) {
-      return false;
+    let rateLimits: RateLimit = {};
+    const today = new Date().toISOString().split('T')[0];
+
+    // Try to read existing rate limits
+    try {
+      const data = await fs.readFile(RATE_LIMIT_FILE, 'utf8');
+      rateLimits = JSON.parse(data);
+    } catch (error) {
+      // File doesn't exist or is invalid, start fresh
+      rateLimits = {};
     }
-    
-    await store.put(key, (currentCount + 1).toString(), {
-      expirationTtl: 86400 // 24 hours in seconds
-    });
-    
+
+    // Clean up old entries
+    for (const key in rateLimits) {
+      if (rateLimits[key].date !== today) {
+        delete rateLimits[key];
+      }
+    }
+
+    // Check and update rate limit for current IP
+    if (!rateLimits[ip] || rateLimits[ip].date !== today) {
+      rateLimits[ip] = { count: 1, date: today };
+    } else if (rateLimits[ip].count >= DAILY_LIMIT) {
+      return false;
+    } else {
+      rateLimits[ip].count++;
+    }
+
+    // Save updated rate limits
+    await fs.writeFile(RATE_LIMIT_FILE, JSON.stringify(rateLimits));
     return true;
   } catch (error) {
     console.error('Rate limit check failed:', error);
@@ -39,7 +64,6 @@ async function checkRateLimit(ip: string): Promise<boolean> {
 }
 
 export const handler: Handler = async (event) => {
-  // Handle OPTIONS request for CORS
   if (event.httpMethod === 'OPTIONS') {
     return { statusCode: 204, headers };
   }
@@ -84,7 +108,7 @@ export const handler: Handler = async (event) => {
         body: JSON.stringify({
           input: text,
           encoded,
-          remaining: isAdmin ? 'unlimited' : (DAILY_LIMIT - (await getRemainingRequests(clientIp)))
+          isAdmin
         })
       };
     } else if (action === 'decode') {
@@ -105,7 +129,7 @@ export const handler: Handler = async (event) => {
         body: JSON.stringify({
           input: text,
           decoded,
-          remaining: isAdmin ? 'unlimited' : (DAILY_LIMIT - (await getRemainingRequests(clientIp)))
+          isAdmin
         })
       };
     }
@@ -126,17 +150,4 @@ export const handler: Handler = async (event) => {
       })
     };
   }
-};
-
-async function getRemainingRequests(ip: string): Promise<number> {
-  const store = getKVStore();
-  const today = new Date().toISOString().split('T')[0];
-  const key = `ratelimit:${ip}:${today}`;
-  
-  try {
-    const currentCount = parseInt(await store.get(key) || '0');
-    return currentCount;
-  } catch (error) {
-    return 0;
-  }
-} 
+}; 
