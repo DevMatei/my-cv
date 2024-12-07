@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Github, Mail } from 'lucide-react';
-import { useForm } from '@formspree/react';
 
 export default function Contact() {
-  const [state, handleSubmit] = useForm("xldekdwz"); // Replace with your Formspree form ID
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   return (
     <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
@@ -23,7 +23,37 @@ export default function Contact() {
           </p>
 
           <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-xl shadow-lg p-8 backdrop-blur-sm">
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <form 
+              className="space-y-6"
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              onSubmit={(e) => {
+                e.preventDefault();
+                setIsSubmitting(true);
+                const form = e.target as HTMLFormElement;
+                fetch('/', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                  body: new URLSearchParams(new FormData(form) as any).toString(),
+                })
+                .then(() => {
+                  setIsSubmitted(true);
+                  setIsSubmitting(false);
+                  form.reset();
+                })
+                .catch((error) => {
+                  alert(error);
+                  setIsSubmitting(false);
+                });
+              }}
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <div hidden>
+                <input name="bot-field" />
+              </div>
+
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -64,14 +94,14 @@ export default function Contact() {
               </div>
               <motion.button
                 type="submit"
-                disabled={state.submitting}
+                disabled={isSubmitting}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all"
               >
-                {state.submitting ? 'Sending...' : 'Send Message'}
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </motion.button>
-              {state.succeeded && (
+              {isSubmitted && (
                 <p className="mt-4 text-green-600 dark:text-green-400">Thanks for your message!</p>
               )}
             </form>
