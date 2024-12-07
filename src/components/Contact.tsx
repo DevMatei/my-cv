@@ -6,6 +6,33 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        form.reset();
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      alert('Error submitting form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-4">
@@ -24,30 +51,12 @@ export default function Contact() {
 
           <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-xl shadow-lg p-8 backdrop-blur-sm">
             <form 
-              className="space-y-6"
               name="contact"
               method="POST"
               data-netlify="true"
               netlify-honeypot="bot-field"
-              onSubmit={(e) => {
-                e.preventDefault();
-                setIsSubmitting(true);
-                const form = e.target as HTMLFormElement;
-                fetch('/', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                  body: new URLSearchParams(new FormData(form) as any).toString(),
-                })
-                .then(() => {
-                  setIsSubmitted(true);
-                  setIsSubmitting(false);
-                  form.reset();
-                })
-                .catch((error) => {
-                  alert(error);
-                  setIsSubmitting(false);
-                });
-              }}
+              onSubmit={handleSubmit}
+              className="space-y-6"
             >
               <input type="hidden" name="form-name" value="contact" />
               <div hidden>
