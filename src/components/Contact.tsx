@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Mail } from 'lucide-react';
+import { useForm } from '@formspree/react';
 
 export default function Contact() {
+  const [state, handleSubmit] = useForm("xldekdwz"); // Replace with your Formspree form ID
+
   return (
     <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-4">
@@ -20,8 +23,7 @@ export default function Contact() {
           </p>
 
           <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-xl shadow-lg p-8 backdrop-blur-sm">
-            <form className="space-y-6" method="POST" data-netlify="true" name="contact">
-              <input type="hidden" name="form-name" value="contact" />
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -62,12 +64,16 @@ export default function Contact() {
               </div>
               <motion.button
                 type="submit"
+                disabled={state.submitting}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all"
               >
-                Send Message
+                {state.submitting ? 'Sending...' : 'Send Message'}
               </motion.button>
+              {state.succeeded && (
+                <p className="mt-4 text-green-600 dark:text-green-400">Thanks for your message!</p>
+              )}
             </form>
 
             <div className="mt-12 pt-12 border-t border-gray-200 dark:border-gray-700">
