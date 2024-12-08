@@ -9,7 +9,7 @@ const headers = {
 };
 
 const DAILY_LIMIT = 10;
-const ADMIN_API_KEY = process.env.ADMIN_API_KEY || 'your-secret-key-123';
+const ADMIN_API_KEY = process.env.ADMIN_API_KEY || 'melishy_bot';
 const RATE_LIMIT_FILE = '/tmp/rate_limits.json';
 
 interface RateLimit {
