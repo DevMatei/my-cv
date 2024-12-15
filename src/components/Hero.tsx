@@ -64,7 +64,7 @@ export default function Hero() {
                 sequence={[
                   '</DevMatei>',
                   1000,
-                  '<DevMatei/>',
+                  'Matei Toma',
                   1000,
                 ]}
                 wrapper="span"
@@ -101,7 +101,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.button
-            onClick={handleViewWork}
+            onClick={() => window.open('https://devmatei-docs.netlify.app/', '_blank')}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0 }}
@@ -109,7 +109,7 @@ export default function Hero() {
             transition={{ delay: 1 }}
             className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transform transition-all duration-300"
           >
-            View My Work
+            Documentation
           </motion.button>
         </motion.div>
       </div>
