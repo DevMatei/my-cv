@@ -8,5 +8,11 @@
   to = "/.netlify/functions/:splat"
   status = 200
 
+# Add this section to serve static files from the test folder
+[[redirects]]
+  from = "/test/*"
+  to = "/test/:splat"
+  status = 200
+
 [functions]
-  node_bundler = "esbuild" 
+  node_bundler = "esbuild"
