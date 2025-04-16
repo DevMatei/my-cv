@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
@@ -43,12 +44,12 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <motion.span 
+          <motion.div
             whileHover={{ scale: 1.05 }}
             className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
           >
-            &lt;/DevMatei&gt;
-          </motion.span>
+            <Link to="/">&lt;/DevMatei&gt;</Link>
+          </motion.div>
           
           <div className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (

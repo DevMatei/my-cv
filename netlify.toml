@@ -14,5 +14,11 @@
   to = "/test/:splat"
   status = 200
 
+# Add this section to serve video files
+[[redirects]]
+  from = "/videos/*"
+  to = "/videos/:splat"
+  status = 200
+
 [functions]
   node_bundler = "esbuild"
