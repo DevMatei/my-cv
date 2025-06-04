@@ -20,5 +20,11 @@
   to = "/videos/:splat"
   status = 200
 
+# Add redirect for portfolio page
+[[redirects]]
+  from = "/portofolio"
+  to = "/portfolio"
+  status = 301
+
 [functions]
   node_bundler = "esbuild"
