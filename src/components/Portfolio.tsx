@@ -1,7 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Terminal, Globe, Code, Server, Database, Paintbrush, MessageSquare, Zap, Layout, Package } from 'lucide-react';
+
+import {
+  Terminal,
+  Globe,
+  MessageSquare,
+  Server,
+  Code,
+  Zap,
+  BookOpen,
+  Youtube,
+  MousePointerClick,
+  PencilRuler
+} from 'lucide-react';
 
 type Project = {
   title: string;
@@ -30,12 +42,6 @@ const projects: Project[] = [
     icon: MessageSquare
   },
   {
-    title: 'EspressoHost',
-    description: 'Under development hosting platform offering reliable web hosting services',
-    link: 'https://espressohost.xyz',
-    icon: Server
-  },
-  {
     title: 'Base64 Encode/Decode API',
     description: 'Simple API for Base64 transformations with developer-friendly documentation',
     link: 'https://docs.devmatei.is-a.dev',
@@ -43,48 +49,49 @@ const projects: Project[] = [
   },
   {
     title: 'ideaGPT',
-    description: 'Multilingual idea generator for various project categories and domains',
+    description: 'Idea generator for various project categories and domains',
     link: 'https://idea.devmatei.is-a.dev',
     icon: Zap
   },
   {
-    title: 'A. O. Centrul de Consultație Educația Civică',
-    description: 'Modern civic education website with React and Framer animations',
-    link: 'https://educatiecivica.md',
-    icon: Layout
+    title: 'A.O. Educatia Civica',
+    description: 'Modern civic education website made for a nonprofit organization',
+    link: 'https://educatiacivica.md',
+    icon: BookOpen
   },
   {
-    title: 'Chatbot Powered by ChatGPT',
-    description: 'Interactive AI chatbot with login functionality using ChatGPT API',
-    link: 'https://chatbot.devmatei.is-a.dev',
-    icon: MessageSquare
+    title: 'Matei\'s Blog',
+    description: 'Personal blog sharing dev thoughts, updates, and coding tips',
+    link: 'https://blog.devmatei.is-a.dev',
+    icon: PencilRuler
   },
   {
-    title: 'CPS Game',
-    description: 'Interactive clicks-per-second testing game with real-time feedback',
-    link: 'https://cpsgame.devmatei.is-a.dev',
-    icon: Zap
+    title: 'FireflyYT Website',
+    description: 'Sleek custom promotional website for YouTuber Firefly',
+    link: 'https://fireflyyt.xyz',
+    icon: Youtube
   },
   {
-    title: '"is-a-dev" Website (Prototype)',
-    description: 'Prototype for revamped is-a.dev platform with modern design improvements',
+    title: 'CPS Test',
+    description: 'Click-per-second tester tool with slick animations and speed testing',
+    link: 'https://cps.devmatei.is-a.dev',
+    icon: MousePointerClick
+  },
+  {
+    title: 'is-a.dev Prototype',
+    description: 'Prototype for their is-a.dev service, showcasing the concept',
     link: 'https://is-a-dev.devmatei.is-a.dev',
-    icon: Layout
-  },
-  {
-    title: 'Hate.is-a.dev',
-    description: 'Humorous parody website showcasing creative web design skills',
-    link: 'https://hate.is-a.dev',
-    icon: Package
+    icon: Server
   }
 ];
+
 
 export default function Portfolio() {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1
   });
-
+z
   return (
     <section className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">

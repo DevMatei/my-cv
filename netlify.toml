@@ -20,11 +20,27 @@
   to = "/videos/:splat"
   status = 200
 
-# Add redirect for portfolio page
+# Add redirects for portfolio page variations
 [[redirects]]
   from = "/portofolio"
   to = "/portfolio"
   status = 301
+
+[[redirects]]
+  from = "/Portofolio"
+  to = "/portfolio"
+  status = 301
+
+[[redirects]]
+  from = "/PORTOFOLIO"
+  to = "/portfolio"
+  status = 301
+
+# Catch-all redirect for SPA
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
 
 [functions]
   node_bundler = "esbuild"
