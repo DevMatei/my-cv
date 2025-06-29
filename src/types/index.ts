@@ -1,21 +1,32 @@
+export interface SocialMedia {
+  platform: string;
+  handle: string;
+  url: string;
+  icon: string;
+  iconUrl: string;
+  color: string;
+}
+
 export interface Project {
-  title: string;
-  description: string;
-  image: string;
-  techStack: string[];
-  demoLink: string;
-  githubLink: string;
-}
-
-export interface Skill {
-  name: string;
-  level: number;
-  category: 'frontend' | 'backend' | 'tools';
-}
-
-export interface TimelineItem {
-  date: string;
+  id: string;
   title: string;
   description: string;
   icon: string;
+  url?: string;
+  github?: string;
+  tags: string[];
+  color: string;
+}
+
+export interface Theme {
+  name: string;
+  colors: {
+    primary: string;
+    secondary: string;
+    background: string;
+    surface: string;
+    text: string;
+    textSecondary: string;
+    border: string;
+  };
 }

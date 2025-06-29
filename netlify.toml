@@ -3,47 +3,28 @@
   publish = "dist"
   functions = "netlify/functions"
 
-# Portfolio redirects need to come before other rules
-[[redirects]]
-  from = "/portofolio"
-  to = "/"
-  status = 301
-
-[[redirects]]
-  from = "/Portofolio"
-  to = "/"
-  status = 301
-
-[[redirects]]
-  from = "/PORTOFOLIO"
-  to = "/"
-  status = 301
-
-[[redirects]]
-  from = "/portfolio"
-  to = "/"
-  status = 301
-
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
   status = 200
 
 [[redirects]]
-  from = "/test/*"
-  to = "/test/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/videos/*"
-  to = "/videos/:splat"
-  status = 200
-
-# This must be the last redirect
-[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
-[functions]
-  node_bundler = "esbuild"
+[build.environment]
+  NODE_VERSION = "18"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

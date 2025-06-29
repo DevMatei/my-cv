@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
-import { passwordStrengthRouter } from './routes/passwordStrength';
 import { base64Router } from './routes/base64Routes';
 
 const app = express();
@@ -20,7 +19,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use('/api', passwordStrengthRouter);
 app.use('/api', base64Router);
 
 // Error handling middleware

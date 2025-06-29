@@ -1,37 +1,37 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from './context/ThemeContext';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Experience from './components/Experience';
-import Contact from './components/Contact';
-import NotFound from './components/NotFound';
-import Portfolio from './components/Portfolio';
+import { ThemeProvider } from './hooks/useTheme';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import About from './pages/About';
+import Projects from './pages/Projects';
+import Contact from './pages/Contact';
+
+function AppContent() {
+  return (
+    <div 
+      className="min-h-screen transition-colors duration-300"
+      style={{ backgroundColor: 'var(--color-background)' }}
+    >
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </div>
+  );
+}
 
 function App() {
   return (
-    <Router>
-      <ThemeProvider>
-        <div className="bg-white dark:bg-gray-900 min-h-screen">
-          <Navbar />
-          <Routes>
-            <Route path="/" element={
-              <>
-                <Hero />
-                <About />
-                <Skills />
-                <Experience />
-                <Contact />
-              </>
-            } />
-            <Route path="portofolio" element={<Portfolio />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </div>
-      </ThemeProvider>
-    </Router>
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 }
 
