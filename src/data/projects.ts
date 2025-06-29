@@ -12,15 +12,6 @@ export const projects: Project[] = [
     color: '#c084fc',
   },
   {
-    id: 'cv',
-    title: 'my cv',
-    description: 'detailed cv showcasing web development skills, projects, and achievements',
-    icon: 'FileText',
-    url: '/',
-    tags: ['personal', 'career'],
-    color: '#a78bfa',
-  },
-  {
     id: 'hypemc',
     title: 'hypemc website',
     description: 'minecraft server network website with animations and discord integration',
