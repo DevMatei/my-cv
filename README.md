@@ -69,8 +69,6 @@ Totally not an excuse for me to not do extra work :))
 - **Netlify:**
   - Uses `netlify.toml` for build, redirects, and headers
   - Functions are in `netlify/functions/`
-- **Vercel/Other:**
-  - Adapt build and API setup as needed
 
 ## Tech Stack
 
