@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Encourage search engines to crawl more frequently
+Crawl-delay: 1
+
+# Set high priority for all pages
+# (Note: true priority is set in sitemap.xml, but this is a hint)
+
+# Remove any disallow rules that might block crawling
+
+# Extra: Add host directive for Yandex and others
+Host: https://devmatei.is-a.dev/

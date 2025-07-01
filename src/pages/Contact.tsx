@@ -198,6 +198,7 @@ export default function Contact() {
 
             <button
               type="submit"
+              aria-label="Send message"
               disabled={isSubmitting}
               className="w-full py-4 px-6 rounded-xl font-medium flex items-center justify-center gap-3 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.02]"
               style={{

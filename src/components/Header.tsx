@@ -48,6 +48,7 @@ export default function Header() {
           </nav>
 
           <button
+            aria-label={isMobileMenuOpen ? "Close mobile menu" : "Open mobile menu"}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden p-2 rounded-lg transition-colors duration-200"
             style={{ color: 'var(--color-text)' }}

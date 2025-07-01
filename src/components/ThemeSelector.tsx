@@ -9,6 +9,7 @@ export default function ThemeSelector() {
   return (
     <div className="relative">
       <button
+        aria-label={`Select theme: ${currentTheme.name}`}
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-2 px-4 py-2 rounded-xl border transition-all duration-200 hover:scale-105"
         style={{
@@ -37,6 +38,7 @@ export default function ThemeSelector() {
           {themes.map((theme) => (
             <button
               key={theme.name}
+              aria-label={`Switch to theme: ${theme.name}`}
               onClick={() => {
                 setTheme(theme);
                 setIsOpen(false);
