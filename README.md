@@ -39,7 +39,7 @@ A modern, open-source personal website built with React, TypeScript, Vite, and T
 
 ## API: Base64 Encode/Decode
 
-See the [API documentation](https://docs.devmatei.is-a.dev).
+See the [API documentation](https://docs.devmatei.com).
 
 - **Endpoint:** `/api/base64`
 - **Methods:** `GET`
@@ -55,7 +55,7 @@ See the [API documentation](https://docs.devmatei.is-a.dev).
 ### Example Usage
 
 ```sh
-curl "https://devmatei.is-a.dev/api/base64?action=encode&text=hello"
+curl "https://devmatei.com/api/base64?action=encode&text=hello"
 ```
 
 ## The not-so-hidden key challenge!
