@@ -43,8 +43,8 @@ export const socialMediaData: SocialMedia[] = [
   },
   {
     platform: 'email',
-    handle: 'contact@devmatei.is-a.dev',
-    url: 'mailto:contact@devmatei.is-a.dev',
+    handle: 'hello@devmatei.com',
+    url: 'mailto:hello@devmatei.com',
     icon: 'Mail',
     iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg',
     color: '#ea4335',
