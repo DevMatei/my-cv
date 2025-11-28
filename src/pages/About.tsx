@@ -49,7 +49,7 @@ export default function About() {
 
           <ul className="list-disc pl-4 sm:pl-6 mb-4 sm:mb-6 space-y-2">
             <li className="text-base sm:text-lg mb-2" style={{ color: 'var(--color-text)' }}>🎮 gaming with friends</li>
-            <li className="text-base sm:text-lg mb-2" style={{ color: 'var(--color-text)' }}>📺 streaming on twitch</li>
+            <li className="text-base sm:text-lg mb-2" style={{ color: 'var(--color-text)' }}>✌️ existing</li>
             <li className="text-base sm:text-lg mb-2" style={{ color: 'var(--color-text)' }}>🎵 vibing to music</li>
             <li className="text-base sm:text-lg mb-2" style={{ color: 'var(--color-text)' }}>🌱 picking up new skills</li>
             <li className="text-base sm:text-lg mb-2" style={{ color: 'var(--color-text)' }}>☕ fueled by way too much tea (i hate coffee)</li>

@@ -11,3 +11,6 @@ Crawl-delay: 1
 
 # Extra: Add host directive for Yandex and others
 Host: https://devmatei.com/
+
+
+Sitemap: https://devmatei.com/sitemap.xml
