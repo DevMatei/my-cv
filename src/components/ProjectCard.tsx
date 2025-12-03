@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
 import * as Icons from 'lucide-react';
+import type { ComponentType } from 'react';
 import { Project } from '../types';
 
 interface ProjectCardProps {
@@ -9,7 +9,9 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
-  const IconComponent = Icons[project.icon as keyof typeof Icons] as React.ComponentType<any>;
+  const IconComponent = (
+    Icons[project.icon as keyof typeof Icons] as ComponentType<any> | undefined
+  ) ?? Icons.Circle;
 
   return (
     <div
