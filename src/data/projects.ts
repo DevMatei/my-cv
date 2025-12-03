@@ -26,6 +26,7 @@ export const projects: Project[] = [
     title: 'Symphcord',
     description: 'discord bot for transforming the last 100 messages in a channel into a small symphony',
     icon: 'Robot',
+    url: 'https://github.com/devmatei/symphcord',
     github: 'https://github.com/devmatei/symphcord',
     tags: [ 'discord', 'bot', 'music' ],
     color: '#fbbf24',
