@@ -33,8 +33,8 @@ export const projects: Project[] = [
   },
   {
     id: 'blog',
-    title: "matei's blog (retired website)",
-    description: 'personal blog sharing dev thoughts, updates, and coding tips - now archived and i del all posts since they were cringe',
+    title: "matei's blog",
+    description: 'personal blog sharing dev thoughts, updates, and coding tips',
     icon: 'BookOpen',
     url: 'https://blog.devmatei.com',
     tags: ['blog', 'writing'],
