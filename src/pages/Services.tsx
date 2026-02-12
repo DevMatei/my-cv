@@ -22,12 +22,12 @@ export default function Services() {
       answer: 'both packages include revision rounds. you review the work, leave feedback async, and i make it perfect. clear, documented feedback makes revisions smooth and fast.',
     },
     {
-      question: 'do you handle both design and development?',
-      answer: 'yep. from figma mockups to production code, i handle the full stack. you get a complete, polished product without coordinating multiple people.',
+      question: 'how does design work?',
+      answer: 'i build directly in code, no figma. if you have your own figma mockup, bring it over and i\'ll make it work. mostly focused on landing pages that don\'t need complex databases or apis.',
     },
     {
-      question: 'what happens after launch?',
-      answer: 'everything package includes 30 days of support for bugs and tweaks. need ongoing work? we can set up a retainer or handle updates project-by-project.',
+      question: 'do you use templates?',
+      answer: 'nope. everything is custom coded from scratch. you get unique, clean code built specifically for your project, not recycled template junk.',
     },
   ];
 
@@ -103,9 +103,9 @@ export default function Services() {
 
           <ul className="space-y-4 mb-8">
             {[
-              'single page or feature',
+              'single landing page',
+              'custom code, no templates',
               'responsive design',
-              'clean, documented code',
               '2 revision rounds',
               'production deployment',
               '30 days post-launch support',
@@ -171,16 +171,16 @@ export default function Services() {
               className="text-base leading-relaxed"
               style={{ color: 'var(--color-textSecondary)' }}
             >
-              full apps, complex features, and complete digital experiences.
+              multi-page sites and complex landing pages with animations.
             </p>
           </div>
 
           <ul className="space-y-4 mb-8">
             {[
-              'multi-page app or site',
-              'custom ui/ux design',
-              'backend + database setup',
-              'api integrations',
+              'multi-page site',
+              'custom code, no templates',
+              'advanced animations',
+              'responsive design',
               'full documentation',
               'unlimited revisions',
               'production deployment',
