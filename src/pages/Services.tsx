@@ -1,5 +1,6 @@
 import { Check } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Services() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -120,15 +121,16 @@ export default function Services() {
             ))}
           </ul>
 
-          <button
-            className="w-full py-3 px-6 rounded-lg font-semibold transition-all duration-200 hover:scale-105"
+          <Link
+            to="/contact"
+            className="w-full inline-block text-center py-3 px-6 rounded-lg font-semibold transition-all duration-200 hover:scale-105"
             style={{
               backgroundColor: 'var(--color-primary)',
               color: 'var(--color-background)',
             }}
           >
             get started
-          </button>
+          </Link>
         </div>
 
         {/* Everything Tier */}
@@ -196,15 +198,16 @@ export default function Services() {
             ))}
           </ul>
 
-          <button
-            className="w-full py-3 px-6 rounded-lg font-semibold transition-all duration-200 hover:scale-105"
+          <Link
+            to="/contact"
+            className="w-full inline-block text-center py-3 px-6 rounded-lg font-semibold transition-all duration-200 hover:scale-105"
             style={{
               backgroundColor: 'var(--color-primary)',
               color: 'var(--color-background)',
             }}
           >
             get started
-          </button>
+          </Link>
         </div>
       </div>
 
