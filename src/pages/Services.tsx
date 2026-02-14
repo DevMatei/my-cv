@@ -88,7 +88,7 @@ export default function Services() {
                 className="text-5xl font-black"
                 style={{ color: 'var(--color-primary)' }}
               >
-                $600
+                $500
               </span>
               <span style={{ color: 'var(--color-textSecondary)' }}>
                 per project
@@ -107,7 +107,7 @@ export default function Services() {
               'single landing page',
               'custom code, no templates',
               'responsive design',
-              '2 revision rounds',
+              '2 revision rounds max',
               'production deployment',
               '30 days post-launch support',
             ].map((feature) => (
@@ -163,7 +163,7 @@ export default function Services() {
                 className="text-5xl font-black"
                 style={{ color: 'var(--color-primary)' }}
               >
-                $1,000
+                $800
               </span>
               <span style={{ color: 'var(--color-textSecondary)' }}>
                 per project
@@ -181,10 +181,10 @@ export default function Services() {
             {[
               'multi-page site',
               'custom code, no templates',
-              'advanced animations',
+              'nice animations',
               'responsive design',
               'full documentation',
-              'unlimited minor revisions',
+              '4 revision rounds max',
               'production deployment',
               '30 days post-launch support',
             ].map((feature) => (
