@@ -13,11 +13,11 @@ export const projects: Project[] = [
   },
   {
     id: 'wrapped-listenbrainz',
-    title: 'ListenBrainz Wrapped',
-    description: 'personalized yearly music listening summary using ListenBrainz data of your account - project mentioned in ListenBrainz wiki',
+    title: 'Make a wrapped',
+    description: 'personalized yearly music listening summary using ListenBrainz/last.fm/Navidrome data of your account - project mentioned in ListenBrainz wiki and Year in Music',
     icon: 'Music',
     url: 'https://wrapped.devmatei.com',
-    github: 'https://github.com/devmatei/listenbrainz-wrapped',
+    github: 'https://github.com/devmatei/make-a-wrapped',
     tags: ['music', 'data visualization'],
     color: '#a78bfa', 
   },
@@ -60,11 +60,11 @@ export const projects: Project[] = [
   },
   {
     id: 'educatiecivica',
-    title: 'website for educatiecivia.md',
+    title: 'educatiecivia.md',
     description: 'website for a non-profit in Moldova',
     icon: 'Globe2',
     url: 'https://educatiecivia.md',
-    tags: ['website', 'democracy'],
+    tags: ['project', 'democracy'],
     color: '#fb7185',
   },
 ];
