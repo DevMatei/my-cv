@@ -184,7 +184,7 @@ export default function Services() {
               'advanced animations',
               'responsive design',
               'full documentation',
-              'unlimited revisions',
+              'unlimited minor revisions',
               'production deployment',
               '30 days post-launch support',
             ].map((feature) => (
