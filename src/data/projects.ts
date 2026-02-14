@@ -55,7 +55,16 @@ export const projects: Project[] = [
     description: 'prototype for their is-a.dev service, showcasing the concept',
     icon: 'Globe2',
     url: 'https://is-a-dev.devmatei.is-a.dev',
-    tags: ['open source', 'infrastructure'],
+    tags: ['prototype', 'infrastructure'],
     color: '#6ee7b7',
+  },
+  {
+    id: 'educatiecivica',
+    title: 'website for educatiecivia.md',
+    description: 'website for a non-profit in Moldova',
+    icon: 'Globe2',
+    url: 'https://educatiecivia.md',
+    tags: ['website', 'democracy'],
+    color: '#fb7185',
   },
 ];
