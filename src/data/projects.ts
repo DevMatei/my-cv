@@ -67,4 +67,13 @@ export const projects: Project[] = [
     tags: ['project', 'democracy'],
     color: '#fb7185',
   },
+  {
+    id: 'buildhunt',
+    title: 'BuildHunt.dev',
+    description: 'where ideas find builders. ',
+    icon: 'Globe2',
+    url: 'buildhunt.dev',
+    tags: ['project', 'social'],
+    color: '#6ee7b7',
+  },
 ];
