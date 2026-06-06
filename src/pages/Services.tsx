@@ -7,28 +7,28 @@ export default function Services() {
 
   const faqs = [
     {
-      question: 'why 100% async?',
-      answer: 'meetings kill momentum. i work in deep focus blocks to ship faster, better work. you get updates via your preferred channel (email, slack, discord) and can review progress anytime.',
+      question: 'why async only?',
+      answer: "because meetings are a waste of time for both of us. i work better without them and you get your stuff done faster. everything happens over text (email, discord, whatever works for you). you get updates and previews, leave feedback whenever you want.",
     },
     {
-      question: 'how do we communicate?',
-      answer: 'all communication happens async through your preferred tool. i send regular updates, screen recordings, and progress reports. you review and provide feedback on your own schedule.',
+      question: 'how do we actually communicate?',
+      answer: "pick whatever works for you: email, discord, slack, doesn't matter. i send regular updates with screenshots or screen recordings so you always know what's going on. no scheduling, no awkward calls.",
     },
     {
-      question: 'what\'s the turnaround time?',
-      answer: 'most projects wrap in 2-4 weeks depending on scope. no meeting overhead means more time actually building. you\'ll get consistent progress updates throughout.',
+      question: "how long does it take?",
+      answer: "most projects wrap up in 1-3 weeks. no meeting overhead means more time actually building. i'll keep you updated throughout so you're not left wondering what's happening.",
     },
     {
-      question: 'what if i need revisions?',
-      answer: 'both packages include revision rounds. you review the work, leave feedback async, and i make it perfect. clear, documented feedback makes revisions smooth and fast.',
+      question: 'what if i want changes?',
+      answer: "both plans come with revision rounds. leave feedback async, i fix it, done. the clearer the feedback the faster it goes. if something isn't clear i'll just ask.",
     },
     {
-      question: 'how does design work?',
-      answer: 'i build directly in code, no figma. if you have your own figma mockup, bring it over and i\'ll make it work. mostly focused on landing pages that don\'t need complex databases or apis.',
+      question: 'do you use figma or templates?',
+      answer: "no templates, ever. everything is custom coded from scratch. i build directly in code. if you have a figma file bring it over and i'll implement it. if not, i design as i build.",
     },
     {
-      question: 'do you use templates?',
-      answer: 'nope. everything is custom coded from scratch. you get unique, clean code built specifically for your project, not recycled template junk.',
+      question: "what if my project doesn't fit either plan?",
+      answer: "just message me through the contact page and describe what you need. if it's somewhere in between or something totally different we can sort out a custom price. no obligations.",
     },
   ];
 
@@ -47,7 +47,7 @@ export default function Services() {
             no meetings, just results
           </span>
         </div>
-        
+
         <h1
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight"
           style={{ color: 'var(--color-text)' }}
@@ -56,7 +56,7 @@ export default function Services() {
           <br />
           <span style={{ color: 'var(--color-primary)' }}>zero meetings.</span>
         </h1>
-        
+
         <p
           className="text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed"
           style={{ color: 'var(--color-textSecondary)' }}
@@ -88,7 +88,7 @@ export default function Services() {
                 className="text-5xl font-black"
                 style={{ color: 'var(--color-primary)' }}
               >
-                $500
+                $200
               </span>
               <span style={{ color: 'var(--color-textSecondary)' }}>
                 per project
@@ -98,7 +98,7 @@ export default function Services() {
               className="text-base leading-relaxed"
               style={{ color: 'var(--color-textSecondary)' }}
             >
-              perfect for landing pages, small sites, and focused features.
+              a single, clean landing page. good for getting online fast.
             </p>
           </div>
 
@@ -107,9 +107,9 @@ export default function Services() {
               'single landing page',
               'custom code, no templates',
               'responsive design',
-              '2 revision rounds max',
+              '2 revision rounds',
               'production deployment',
-              '30 days post-launch support',
+              '14 days post-launch support',
             ].map((feature) => (
               <li key={feature} className="flex items-start gap-3">
                 <Check
@@ -163,7 +163,7 @@ export default function Services() {
                 className="text-5xl font-black"
                 style={{ color: 'var(--color-primary)' }}
               >
-                $800
+                $400
               </span>
               <span style={{ color: 'var(--color-textSecondary)' }}>
                 per project
@@ -173,7 +173,7 @@ export default function Services() {
               className="text-base leading-relaxed"
               style={{ color: 'var(--color-textSecondary)' }}
             >
-              multi-page sites and complex landing pages with animations.
+              multi-page site with animations and the full package.
             </p>
           </div>
 
@@ -181,10 +181,10 @@ export default function Services() {
             {[
               'multi-page site',
               'custom code, no templates',
-              'nice animations',
+              'animations & interactions',
               'responsive design',
               'full documentation',
-              '4 revision rounds max',
+              '4 revision rounds',
               'production deployment',
               '30 days post-launch support',
             ].map((feature) => (
@@ -256,7 +256,7 @@ export default function Services() {
                   +
                 </span>
               </button>
-              
+
               {openFaq === index && (
                 <div
                   className="px-6 pb-5 leading-relaxed"
@@ -282,10 +282,10 @@ export default function Services() {
           className="text-lg mb-8"
           style={{ color: 'var(--color-textSecondary)' }}
         >
-          let's talk about your project. no meetings required.
+          drop me a message. no calls, no forms with 12 fields, just tell me what you need.
         </p>
-        <a
-          href="/contact"
+        <Link
+          to="/contact"
           className="inline-block py-3 px-8 rounded-lg font-semibold transition-all duration-200 hover:scale-105"
           style={{
             backgroundColor: 'var(--color-primary)',
@@ -293,7 +293,7 @@ export default function Services() {
           }}
         >
           get in touch
-        </a>
+        </Link>
       </div>
     </div>
   );
